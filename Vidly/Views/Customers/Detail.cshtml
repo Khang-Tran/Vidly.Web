@@ -1,0 +1,15 @@
+﻿@model Vidly.Models.Customers
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer Details</h2>
+
+
+<ul>
+    <li>Name: @Model.Name</li>
+    <li>Birth Date: @Model.BirthDate</li>
+    <li>Subscribe to Letter: @Model.IsSubscribeToLetter</li>
+</ul>
