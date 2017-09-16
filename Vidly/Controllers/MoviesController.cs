@@ -29,7 +29,7 @@ namespace Vidly.Controllers
         {
             if (!id.HasValue)
                 id = 1;
-            var selectedMovie = _context.MovieSet.SingleOrDefault(m => m.Id == id);
+            var selectedMovie = _context.MovieSet.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
             if (selectedMovie == null)
                 return HttpNotFound();
             return View(selectedMovie);
@@ -38,7 +38,12 @@ namespace Vidly.Controllers
         public ActionResult Create()
         {
             var genres = _context.GenreSet.ToList();
-            var viewModel = new MoviesViewModel() { Movie = new Movies() { Id = _context.MovieSet.ToList().Count + 1 }, Genres = genres };
+            var viewModel = new MoviesViewModel()
+            {
+                Movie = new Movies(),
+                Genres = genres
+            };
+            TempData["ButtonName"] = "Create";
             return View("MoviesForm", viewModel);
         }
 
@@ -48,29 +53,41 @@ namespace Vidly.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var viewModel = new MoviesViewModel()
-                {
-                    Movie = new Movies() {Id = _context.MovieSet.ToList().Count + 1, AddedDate = DateTime.Now},
-                    Genres = _context.GenreSet.ToList()
-                };
-                return View("MoviesForm", viewModel);
+                Create();
             }
             if (movie.Id == 0)
+            {
+                movie.Id = _context.MovieSet.ToList().Count + 1;
+                movie.AddedDate=DateTime.Now;
                 _context.MovieSet.Add(movie);
+            }
             else
             {
                 var existedMovie = _context.MovieSet.Single(m => m.Id == movie.Id);
                 if (existedMovie == null)
                     return HttpNotFound();
                 existedMovie.Name = movie.Name;
-                
-                existedMovie.AddedDate = movie.AddedDate;
                 existedMovie.GenreId = movie.GenreId;
                 existedMovie.ReleasedDate = movie.ReleasedDate;
                 existedMovie.Stock = movie.Stock;
             }
             _context.SaveChanges();
+            TempData["ButtonName"] = "Save";
             return RedirectToAction("Index", "Movies");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var selectedMovie = _context.MovieSet.SingleOrDefault(m => m.Id == id);
+            if (selectedMovie == null)
+                return HttpNotFound();
+            var viewModel = new MoviesViewModel()
+            {
+                Movie = selectedMovie,
+                Genres = _context.GenreSet.ToList()
+            };
+            TempData["ButtonName"] = "Edit";
+            return View("MoviesForm", viewModel);
         }
     }
 }

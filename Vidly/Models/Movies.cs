@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Vidly.Models.Validations;
 
 namespace Vidly.Models
 {
@@ -18,6 +19,7 @@ namespace Vidly.Models
         [Display(Name = "Genre")]
         public int GenreId { get; set; }
         [Display(Name = "Released Date")]
+        [ReleasedDateValidation]
         public DateTime ReleasedDate { get; set; }
         public DateTime AddedDate { get; set; }
         [Range(1,20)]

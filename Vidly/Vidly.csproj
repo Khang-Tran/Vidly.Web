@@ -226,6 +226,7 @@
     <Compile Include="Models\MembershipTypes.cs" />
     <Compile Include="Models\Movies.cs" />
     <Compile Include="Models\Validations\AgeValidation.cs" />
+    <Compile Include="Models\Validations\ReleasedDateValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomersViewModel.cs" />

@@ -55,11 +55,11 @@ namespace Vidly.Controllers
                 };
                 return View("CustomerForm", viewModel);
             }
-            if (customers.Id == 0) 
+            if (customers.Id == _context.CustomerSet.Count() +1) 
                 _context.CustomerSet.Add(customers);
             else
             {
-                var existedCustomer = _context.CustomerSet.Single(c => c.Id == customers.Id);
+                var existedCustomer = _context.CustomerSet.SingleOrDefault(c => c.Id == customers.Id);
                 existedCustomer.Name = customers.Name;
                 existedCustomer.BirthDate = customers.BirthDate;
                 existedCustomer.IsSubscribeToLetter = customers.IsSubscribeToLetter;
