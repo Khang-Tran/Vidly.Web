@@ -78,3 +78,11 @@ C:\Users\cktra\OneDrive\Documents\GitHub\Vidly.Web\Vidly\obj\Debug\Vidly.csproj.
 C:\Users\cktra\OneDrive\Documents\GitHub\Vidly.Web\Vidly\obj\Debug\Vidly.Migrations.AddTables.resources
 C:\Users\cktra\OneDrive\Documents\GitHub\Vidly.Web\Vidly\obj\Debug\Vidly.Migrations.AddValidations.resources
 C:\Users\cktra\OneDrive\Documents\GitHub\Vidly.Web\Vidly\obj\Debug\Vidly.Migrations.ModifyForeignkey.resources
+C:\Users\cktra\OneDrive\Documents\GitHub\Vidly.Web\Vidly\bin\AutoMapper.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Vidly.Web\Vidly\bin\System.Net.Http.Formatting.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Vidly.Web\Vidly\bin\System.Web.Http.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Vidly.Web\Vidly\bin\System.Web.Http.WebHost.dll
+C:\Users\cktra\OneDrive\Documents\GitHub\Vidly.Web\Vidly\bin\AutoMapper.xml
+C:\Users\cktra\OneDrive\Documents\GitHub\Vidly.Web\Vidly\bin\System.Net.Http.Formatting.xml
+C:\Users\cktra\OneDrive\Documents\GitHub\Vidly.Web\Vidly\bin\System.Web.Http.xml
+C:\Users\cktra\OneDrive\Documents\GitHub\Vidly.Web\Vidly\bin\System.Web.Http.WebHost.xml
