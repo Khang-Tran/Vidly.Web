@@ -79,11 +79,11 @@ namespace Vidly.Migrations
 
 
             context.MovieSet.AddOrUpdate(m => m.Id,
-                new Movies() { Id = 1, Name = "Deadpool", GenreId = 1, ReleasedDate = DateTime.Now, AddedDate = DateTime.Now, Stock = 5 },
-                new Movies() { Id = 2, Name = "Avengers", GenreId = 1, ReleasedDate = DateTime.Now, AddedDate = DateTime.Now, Stock = 4 },
-                new Movies() { Id = 3, Name = "Die Hard", GenreId = 1, ReleasedDate = DateTime.Now, AddedDate = DateTime.Now, Stock = 2 },
-                new Movies() { Id = 4, Name = "The Terminator", GenreId = 1, ReleasedDate = DateTime.Now, AddedDate = DateTime.Now, Stock = 6 },
-                new Movies() { Id = 5, Name = "Toy Story", GenreId = 2, ReleasedDate = DateTime.Now, AddedDate = DateTime.Now, Stock = 10 }
+                new Movies() { Id = 1, Name = "Deadpool", GenreId = 1, ReleasedDate = Convert.ToDateTime("2019/2/11"), AddedDate = DateTime.Now, Stock = 5 },
+                new Movies() { Id = 2, Name = "Avengers", GenreId = 1, ReleasedDate = Convert.ToDateTime("2020/2/21"), AddedDate = DateTime.Now, Stock = 4 },
+                new Movies() { Id = 3, Name = "Die Hard", GenreId = 1, ReleasedDate = Convert.ToDateTime("2019/4/22"), AddedDate = DateTime.Now, Stock = 2 },
+                new Movies() { Id = 4, Name = "The Terminator", GenreId = 1, ReleasedDate = Convert.ToDateTime("2030/5/11"), AddedDate = DateTime.Now, Stock = 6 },
+                new Movies() { Id = 5, Name = "Toy Story", GenreId = 2, ReleasedDate = Convert.ToDateTime("2060/5/11"), AddedDate = DateTime.Now, Stock = 10 }
             );
 
             context.GenreSet.AddOrUpdate(g => g.Id,

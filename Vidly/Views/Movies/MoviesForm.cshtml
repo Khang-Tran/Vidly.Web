@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Movie.GenreId, "GenreId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("GenreId", new SelectList(Model.Genres,"Id","Name"), htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownListFor(m=>m.Movie.GenreId, new SelectList(Model.Genres,"Id","Name"), htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Movie.GenreId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +50,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <button type="submit" class="btn btn-default">@TempData["ButtonName"]</button>
             </div>
         </div>
     </div>
