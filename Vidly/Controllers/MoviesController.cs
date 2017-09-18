@@ -53,7 +53,8 @@ namespace Vidly.Controllers
         {
             if (!ModelState.IsValid)
             {
-                Create();
+                var viewModel = new MoviesViewModel() {Genres = _context.GenreSet.ToList()};
+                return View("MoviesForm", viewModel);
             }
             if (movie.Id == 0)
             {
