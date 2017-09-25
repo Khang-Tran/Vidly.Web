@@ -54,6 +54,7 @@ namespace Vidly.Controllers
             if (!ModelState.IsValid)
             {
                 var viewModel = new MoviesViewModel() {Genres = _context.GenreSet.ToList()};
+                TempData["ButtonName"] = "Create";
                 return View("MoviesForm", viewModel);
             }
             if (movie.Id == 0)
