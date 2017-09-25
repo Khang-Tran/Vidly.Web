@@ -21,5 +21,6 @@ namespace Vidly.DTOs
         public DateTime AddedDate { get; set; }
    
         public int Stock { get; set; }
+        public GenresDto Genre { get; set; }
     }
 }
