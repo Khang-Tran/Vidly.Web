@@ -19,7 +19,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44377</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -237,6 +237,18 @@
     <Compile Include="Migrations\201709151619022_ModifyForeignkey.Designer.cs">
       <DependentUpon>201709151619022_ModifyForeignkey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709261555451_AddUserRoles.cs" />
+    <Compile Include="Migrations\201709261555451_AddUserRoles.Designer.cs">
+      <DependentUpon>201709261555451_AddUserRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709261820377_AddNewProperties.cs" />
+    <Compile Include="Migrations\201709261820377_AddNewProperties.Designer.cs">
+      <DependentUpon>201709261820377_AddNewProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709261822256_AddNewProperty.cs" />
+    <Compile Include="Migrations\201709261822256_AddNewProperty.Designer.cs">
+      <DependentUpon>201709261822256_AddNewProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customers.cs" />
@@ -245,6 +257,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipTypes.cs" />
     <Compile Include="Models\Movies.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\Validations\AgeValidation.cs" />
     <Compile Include="Models\Validations\ReleasedDateValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -501,10 +514,12 @@
     <Content Include="Views\Shared\_NavBarPartial.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Customers\Detail.cshtml" />
-    <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Customers\List.cshtml" />
+    <Content Include="Views\Movies\List.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Movies\MoviesForm.cshtml" />
+    <Content Include="Views\Customers\ReadOnlyList.cshtml" />
+    <Content Include="Views\Movies\ReadOnlyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -527,6 +542,15 @@
     <EmbeddedResource Include="Migrations\201709151619022_ModifyForeignkey.resx">
       <DependentUpon>201709151619022_ModifyForeignkey.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709261555451_AddUserRoles.resx">
+      <DependentUpon>201709261555451_AddUserRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709261820377_AddNewProperties.resx">
+      <DependentUpon>201709261820377_AddNewProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709261822256_AddNewProperty.resx">
+      <DependentUpon>201709261822256_AddNewProperty.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -546,7 +570,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50250</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50250/</IISUrl>
+          <IISUrl>https://localhost:44377/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

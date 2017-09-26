@@ -7,6 +7,7 @@ using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
+    [Authorize(Roles = RoleName.ManagerRole)]
     public class CustomersController : Controller
     {
         private ApplicationDbContext _context;
@@ -19,11 +20,17 @@ namespace Vidly.Controllers
             if (_context != null)
                 _customers = _context.CustomerSet.Include(c => c.MembershipTypes).ToList();
         }
+        [AllowAnonymous]
         public ActionResult Index()
         {
-            return View();
+            if (User.IsInRole(RoleName.ManagerRole))
+            {
+                return View("List");
+            }
+            return View("ReadOnlyList");
         }
 
+        [AllowAnonymous]
         public ActionResult Detail(int? id)
         {
             if (!id.HasValue)
@@ -34,7 +41,7 @@ namespace Vidly.Controllers
             return View(selectedCustomer);
         }
 
-
+       
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypeSet.ToList();
@@ -68,7 +75,6 @@ namespace Vidly.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Customers");
         }
-
         public ActionResult Edit(int id)
         {
             var selectedCustomer = _context.CustomerSet.SingleOrDefault(c => c.Id == id);

@@ -9,6 +9,7 @@ using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
+    [Authorize(Roles = RoleName.ManagerRole)]
     public class MoviesController : Controller
     {
         private ApplicationDbContext _context;
@@ -18,13 +19,15 @@ namespace Vidly.Controllers
             _context = new ApplicationDbContext();
         }
         // GET: Movies
+        [AllowAnonymous]
         public ActionResult Index()
         {
-            var movies = _context.MovieSet.Include(m => m.Genre).ToList();
-            return View(movies);
+            if (User.IsInRole(RoleName.ManagerRole))
+                return View("List");
+            return View("ReadOnlyList");
         }
 
-
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (!id.HasValue)
