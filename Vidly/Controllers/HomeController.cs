@@ -8,6 +8,7 @@ namespace Vidly.Controllers
 {
     public class HomeController : Controller
     {
+        [OutputCache]
         public ActionResult Index()
         {
             return View();
